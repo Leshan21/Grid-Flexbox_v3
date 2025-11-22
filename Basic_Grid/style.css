@@ -11,10 +11,23 @@ img {
 figure {
   margin: 0;
   padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+  border: 3px solid red;
 }
 
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-row: auto auto auto;  /* we can not use fr here becouse we can not guest row height */
   gap: 1rem 2rem;  /* row gap column gap */
+ 
+}
+
+figure:first-child {
+  grid-column: 1/2;
+  grid-row: 1/4;
+  display: block; /* remove grid from single item */
 }
