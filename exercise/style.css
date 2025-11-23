@@ -1,0 +1,112 @@
+/* extremely basic formatting */
+body {
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+img {
+  max-width: 100%;
+}
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto auto auto;
+  max-width: 1441px;
+  /* You may still use these declarations to create different sized columns or rows in addition to areas */
+  /* grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto; */
+  grid-template-areas:
+    "one two"
+    "one three"
+    "four four";
+  gap: 2rem;
+}
+
+.one {
+  grid-area: two;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 2rem;
+}
+
+.two {
+  grid-area: three;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 2rem;
+}
+
+.three {
+  grid-area: one;
+  display: block;
+}
+
+.four {
+  grid-area: four;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 2rem;
+}
+
+@media (max-width: 750px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "one"
+      "two"
+      "three"
+      "four";
+  }
+
+  .one {
+    grid-area: one;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .three {
+    grid-area: two;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "one"
+      "two"
+      "three"
+      "four";
+  }
+
+  .one {
+    grid-area: one;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .three {
+    grid-area: two;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .four {
+    display: block;
+  }
+  .two {
+    display: block;
+  }
+}
