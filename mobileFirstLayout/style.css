@@ -1,0 +1,140 @@
+/* extremely basic formatting */
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+body {
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0 auto;
+  max-width: 1300px;
+}
+img {
+  max-width: 100%;
+  border-radius: 5px;
+}
+.button {
+  background-color: #2d697c;
+  padding: 0.5rem;
+  border-radius: 5px;
+  color: white;
+  text-decoration: none;
+  font-size: 0.8rem;
+}
+.button:hover {
+  background-color: #327c94;
+}
+
+.grid-main-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem 2rem;
+}
+
+.card {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas:
+    "one two"
+    "tree two";
+  border: 1px solid #ccc;
+  padding: 1rem;
+  font-size: 0.9rem;
+  border-radius: 0.3rem;
+}
+
+.feature {
+   display: block;
+}
+
+.card img {
+  grid-area: two;
+}
+.card h2 {
+  grid-area: one;
+}
+.card p {
+  grid-area: tree;
+}
+
+@media (min-width: 500px) {
+  .grid-main-container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "one one"
+      "one one";
+    grid-template-rows: auto;
+  }
+
+  .feature {
+    grid-area: one;
+    align-items: center;
+  }
+
+  .card {
+    grid-template-columns: 1fr;
+    grid-template-areas: "one" "two" "tree";
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 700px) {
+  .grid-main-container {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      "one one one"
+      "one one one";
+    grid-template-rows: auto;
+  }
+
+  .feature {
+    grid-area: one;
+    align-items: center;
+  }
+
+  .card {
+    grid-template-columns: 1fr;
+    grid-template-areas: "one" "two" "tree";
+    font-size: 0.8rem;
+  }
+
+  .card p {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .grid-main-container {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      "one one two"
+      "one one three"
+      "one one foure"
+      "five six seven";
+    grid-template-rows: auto;
+  }
+
+  .card {
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas:
+      "one two"
+      "tree two";
+    font-size: 1rem;
+    align-items: center;
+  }
+  .card img {
+  grid-area: two;
+}
+.card h2 {
+  grid-area: one;
+}
+.card p {
+  grid-area: tree;
+}
+}
